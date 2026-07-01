@@ -1,6 +1,7 @@
 .venv/
 __pycache__/
 downloads/
+/downloads
 *.pyc
 ffmpeg.exe
 ffprobe.exe
