@@ -6,7 +6,6 @@ import yt_dlp
 
 app = FastAPI(title="YT Downloader")
 
-# Montar el directorio de archivos estáticos
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 DOWNLOAD_DIR = "downloads"
@@ -34,7 +33,7 @@ async def handle_download(
     ydl_opts = {
         'outtmpl': output_template,
         'restrictfilenames': True,
-        'noplaylist': True,  # Evita descargar listas de reproducción completas
+        'noplaylist': True,
     }
 
     if format_type == "audio":
@@ -53,7 +52,6 @@ async def handle_download(
         })
 
     try:
-        # Nota: Usamos yt_dlp con guion bajo (_) en Python, no con guion medio (-)
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
             filename = ydl.prepare_filename(info)
