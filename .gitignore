@@ -2,3 +2,6 @@
 __pycache__/
 downloads/
 *.pyc
+ffmpeg.exe
+ffprobe.exe
+main.cpython-314.pyc
